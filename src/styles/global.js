@@ -3,12 +3,15 @@ import { normalize } from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
-  
-  @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
     padding: 0;
+  }
+  
+  *, *:before, *:after {
+    outline: none;
+    user-select: none;
   }
 
   a {
@@ -19,6 +22,16 @@ const GlobalStyle = createGlobalStyle`
     background: transparent;
     border: none;
     cursor: pointer;
+    padding: 0;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style-type: none;
   }
 `;
 

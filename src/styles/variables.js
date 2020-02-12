@@ -8,6 +8,7 @@ export const secondaryColor = '#f2f2f2';
 // z-indexes
 
 export const headerZindex = 5;
+export const menuZindex = 4;
 
 // Layout components
 
