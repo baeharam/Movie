@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { IoIosSearch } from 'react-icons/io';
 import {
   headerZindex,
@@ -9,8 +9,8 @@ import {
 
 const menuMargin = '1rem';
 
-const Position = styled.div`
-  position: relative;
+const Header = styled.header`
+  height: 7vh;
 `;
 
 const Container = styled.div`
@@ -19,6 +19,7 @@ const Container = styled.div`
   z-index: ${headerZindex};
   display: flex;
   justify-content: ${({ open }) => (open ? 'flex-end' : 'space-between')};
+  align-items: center;
   padding: 1rem 0;
   color: ${({ color }) => color};
 `;
@@ -48,15 +49,12 @@ const IconButton = styled.button`
 const MenuContainer = styled.div`
   display: flex;
   justify-content: center;
-`;
-
-const iconStyle = css`
-  font-size: 1.5rem;
-  stroke-width: 0.7rem;
+  align-items: center;
 `;
 
 const SearchIcon = styled(IoIosSearch)`
-  ${iconStyle}
+  font-size: 2rem;
+  stroke-width: 0.7rem;
 `;
 
 const MenuButton = styled.button`
@@ -71,7 +69,7 @@ const MenuButton = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? 'black' : 'white')};
+    background-color: ${({ open }) => (open ? 'black' : ({ color }) => color)};
     transition: all 0.2s linear;
 
     &:first-child {
@@ -123,7 +121,7 @@ const Overlay = styled.div`
   background-color: ${secondaryColor};
   transition: all 0.3s linear;
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
-  opacity: ${({ open }) => (open ? 0.7 : 0)};
+  opacity: ${({ open }) => (open ? 1 : 0)};
 `;
 
 const OverlayUL = styled.ul`
@@ -147,7 +145,7 @@ const OverlayLI = styled.li`
 `;
 
 export {
-  Position,
+  Header,
   Container,
   LogoButton,
   SearchIcon,

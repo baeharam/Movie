@@ -9,7 +9,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Router>
-        <Header color="white" />
+        <Header />
         <Switch>
           <Route path="/">
             <Home />
