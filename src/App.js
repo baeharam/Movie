@@ -1,11 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import GlobalStyle from 'styles/global';
+import { Home } from 'pages/index';
+import Header from 'components/Header/Header';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <GlobalStyle />
+      <Router>
+        <Header color="white" />
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
