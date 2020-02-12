@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+// Colors
+
+export const primaryColor = '#455d7e';
+export const secondaryColor = '#f2f2f2';
+
+// z-indexes
+
+export const headerZindex = 5;
+
 // Layout components
 
 export const Wrapper = styled.div`
