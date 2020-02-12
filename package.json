@@ -11,6 +11,7 @@
     "react-dom": "^16.12.0",
     "react-icons": "^3.9.0",
     "react-responsive": "^8.0.3",
+    "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
     "styled-components": "^5.0.1",
@@ -43,8 +44,10 @@
     "@storybook/addons": "^5.3.13",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.13",
+    "@types/jest": "^25.1.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2"
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest-styled-components": "^7.0.0"
   }
 }
