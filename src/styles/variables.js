@@ -9,11 +9,12 @@ export const secondaryColor = '#f2f2f2';
 
 export const headerZindex = 5;
 export const menuZindex = 4;
+export const homeIntroZindex = 3;
 
 // Layout components
 
 export const Wrapper = styled.div`
-  max-width: 90vw;
+  width: 90vw;
   margin: 0 auto;
 `;
 

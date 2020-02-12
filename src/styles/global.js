@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: inherit;
   }
 
   button {
@@ -32,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
 
   li {
     list-style-type: none;
+  }
+
+  p,h2 {
+    margin: 0;
   }
 `;
 
