@@ -1,35 +1,71 @@
-import React from 'react';
-import { Wrapper } from 'styles/variables';
+import React, { useState } from 'react';
+import { Wrapper, device } from 'styles/variables';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 import * as S from './Header.style';
 
+const MenuButton = ({ onClickMenu, open }) => {
+  return (
+    <S.MenuButton
+      open={open}
+      onClick={onClickMenu}
+      type="button"
+      aria-label="메뉴"
+    >
+      <div />
+      <div />
+      <div />
+    </S.MenuButton>
+  );
+};
+
+MenuButton.propTypes = {
+  onClickMenu: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
+
 const Header = ({ color }) => {
+  const [open, setOpen] = useState(false);
+  const isTabletPortrait = useMediaQuery({ query: device.TabletPortrait });
+
+  const onClickMenu = () => {
+    setOpen(!open);
+  };
+
   return (
     <header>
       <Wrapper>
-        <S.Position>
-          <S.Container color={color}>
-            <S.LogoButton data-testid="logo-button" type="button">
-              movie
-            </S.LogoButton>
-            <S.IconContainer>
-              <S.IconButton
-                data-testid="search-button"
-                type="button"
-                aria-label="검색버튼"
-              >
-                <S.SearchIcon />
-              </S.IconButton>
-              <S.IconButton
-                data-testid="menu-button"
-                type="button"
-                aria-label="메뉴버튼"
-              >
-                <S.MenuIcon />
-              </S.IconButton>
-            </S.IconContainer>
-          </S.Container>
-        </S.Position>
+        <S.Container open={open} color={color}>
+          <S.LogoButton data-testid="logo-button" type="button" open={open}>
+            movie
+          </S.LogoButton>
+          <S.MenuContainer>
+            <S.IconButton
+              data-testid="search-button"
+              type="button"
+              aria-label="검색버튼"
+              open={open}
+            >
+              <S.SearchIcon />
+            </S.IconButton>
+            {isTabletPortrait ? (
+              <S.UL>
+                <S.LI>둘러보기</S.LI>
+                <S.LI>좋아요</S.LI>
+                <S.LI>소개</S.LI>
+              </S.UL>
+            ) : (
+              <MenuButton onClickMenu={onClickMenu} open={open} />
+            )}
+          </S.MenuContainer>
+        </S.Container>
+        <S.Overlay open={open}>
+          <S.OverlayUL>
+            <S.OverlayLI>둘러보기</S.OverlayLI>
+            <S.OverlayLI>좋아요</S.OverlayLI>
+            <S.OverlayLI>소개</S.OverlayLI>
+          </S.OverlayUL>
+        </S.Overlay>
       </Wrapper>
     </header>
   );

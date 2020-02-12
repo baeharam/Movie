@@ -1,18 +1,24 @@
 import styled, { css } from 'styled-components';
-import { IoIosSearch, IoIosMenu } from 'react-icons/io';
-import { headerZindex } from 'styles/variables';
+import { IoIosSearch } from 'react-icons/io';
+import {
+  headerZindex,
+  device,
+  secondaryColor,
+  menuZindex,
+} from 'styles/variables';
+
+const menuMargin = '1rem';
 
 const Position = styled.div`
   position: relative;
 `;
 
 const Container = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: fixed;
+  width: 90vw;
   z-index: ${headerZindex};
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ open }) => (open ? 'flex-end' : 'space-between')};
   padding: 1rem 0;
   color: ${({ color }) => color};
 `;
@@ -22,13 +28,24 @@ const LogoButton = styled.button`
   font-weight: bold;
   font-size: 1.5rem;
   color: inherit;
+  display: ${({ open }) => (open ? 'none' : 'block')};
 `;
 
 const IconButton = styled.button`
   color: inherit;
+  margin-right: ${menuMargin};
+  display: ${({ open }) => (open ? 'none' : 'block')};
+
+  @media ${device.TabletPortrait} {
+    margin-right: calc(${menuMargin} + 1rem);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
-const IconContainer = styled.div`
+const MenuContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
@@ -42,8 +59,91 @@ const SearchIcon = styled(IoIosSearch)`
   ${iconStyle}
 `;
 
-const MenuIcon = styled(IoIosMenu)`
-  ${iconStyle}
+const MenuButton = styled.button`
+  width: 2rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  cursor: pointer;
+
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: ${({ open }) => (open ? 'black' : 'white')};
+    transition: all 0.2s linear;
+
+    &:first-child {
+      width: ${({ open }) => (open ? '2rem' : '1.3rem')};
+      transform-origin: top left;
+      transform: ${({ open }) => (open ? 'rotateZ(45deg)' : 'rotateZ(0)')};
+    }
+
+    &:nth-child(2) {
+      opacity: ${({ open }) => (open ? 0 : 1)};
+      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
+    }
+
+    &:nth-child(3) {
+      width: ${({ open }) => (open ? '2rem' : '1.3rem')};
+      margin-left: auto;
+      transform-origin: bottom left;
+      transform: ${({ open }) => (open ? 'rotateZ(-45deg)' : 'rotateZ(0)')};
+    }
+  }
+`;
+
+const UL = styled.ul`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const LI = styled.li`
+  font-size: 1.3rem;
+  margin-right: ${menuMargin};
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media ${device.TabletPortrait} {
+    margin-right: calc(${menuMargin} + 1rem);
+  }
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  z-index: ${menuZindex};
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: ${({ open }) => (open ? '100%' : '0')};
+  background-color: ${secondaryColor};
+  transition: all 0.3s linear;
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+  opacity: ${({ open }) => (open ? 0.7 : 0)};
+`;
+
+const OverlayUL = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
+const OverlayLI = styled.li`
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export {
@@ -52,6 +152,11 @@ export {
   LogoButton,
   SearchIcon,
   IconButton,
-  MenuIcon,
-  IconContainer,
+  MenuButton,
+  MenuContainer,
+  UL,
+  LI,
+  Overlay,
+  OverlayUL,
+  OverlayLI,
 };
