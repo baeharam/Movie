@@ -1,4 +1,5 @@
 import React from 'react';
+import withTestRouter from 'utils/withTestRouter';
 import Home from './Home';
 
 export default {
@@ -6,4 +7,4 @@ export default {
   component: Home,
 };
 
-export const normal = () => <Home />;
+export const normal = () => withTestRouter(<Home />);
