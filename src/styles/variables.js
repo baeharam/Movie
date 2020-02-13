@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // Colors
 
-export const primaryColor = '#455d7e';
+export const primaryColor = '#142850';
 export const secondaryColor = '#f2f2f2';
 
 // z-indexes
