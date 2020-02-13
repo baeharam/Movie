@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import { homeIntroZindex, device } from 'styles/variables';
+import {
+  homeIntroZindex,
+  device,
+  headerHeight,
+  footerHeight,
+} from 'styles/variables';
 
 const HomeIntro = styled.section`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   z-index: ${homeIntroZindex};
 `;
 
@@ -16,6 +18,7 @@ const Container = styled.div`
   align-items: center;
   color: white;
   font-size: 1rem;
+  height: calc(100vh - (${headerHeight} + ${footerHeight}));
 
   @media ${device.TabletPortrait} {
     font-size: 2rem;

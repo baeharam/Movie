@@ -5,12 +5,13 @@ import {
   device,
   secondaryColor,
   menuZindex,
+  headerHeight,
 } from 'styles/variables';
 
 const menuMargin = '1rem';
 
 const Header = styled.header`
-  height: 7vh;
+  height: ${headerHeight};
 `;
 
 const Container = styled.div`
@@ -20,7 +21,7 @@ const Container = styled.div`
   display: flex;
   justify-content: ${({ open }) => (open ? 'flex-end' : 'space-between')};
   align-items: center;
-  padding: 1rem 0;
+  height: ${headerHeight};
   color: ${({ color }) => color};
 `;
 

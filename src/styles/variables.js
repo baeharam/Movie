@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+// Values
+
+export const headerHeight = '7vh';
+export const footerHeight = '7vh';
+
 // Colors
 
 export const primaryColor = '#142850';
@@ -10,6 +15,7 @@ export const secondaryColor = '#f2f2f2';
 export const headerZindex = 5;
 export const menuZindex = 4;
 export const homeIntroZindex = 3;
+export const footerZindex = 5;
 
 // Layout components
 
