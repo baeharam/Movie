@@ -1,0 +1,74 @@
+import React, { useState } from 'react';
+import produce from 'immer';
+import { Wrapper } from 'styles/variables';
+import { aroundList } from 'utils/constants';
+import * as S from './AroundType.style';
+
+const AroundType = () => {
+  const [list, setList] = useState(aroundList);
+
+  const onClickItem = e => {
+    const { idx } = e.target.dataset;
+    const { state } = list[idx];
+
+    const newList = produce(list, draft => {
+      let temp = null;
+      if (state === 'next') {
+        // eslint-disable-next-line prefer-destructuring
+        temp = draft[0];
+        for (let i = 1; i < draft.length; i++) {
+          draft[i - 1] = draft[i];
+        }
+        draft[list.length - 1] = temp;
+      } else if (state === 'prev') {
+        temp = draft[list.length - 1];
+        for (let i = draft.length - 2; i >= 0; i--) {
+          draft[i + 1] = draft[i];
+        }
+        draft[0] = temp;
+      }
+
+      for (let i = 0; i < draft.length; i++) {
+        const middleIdx = Math.floor(draft.length / 2);
+        switch (i) {
+          case middleIdx:
+            draft[i].state = 'cur';
+            break;
+          case middleIdx - 1:
+            draft[i].state = 'prev';
+            break;
+          case middleIdx + 1:
+            draft[i].state = 'next';
+            break;
+          default:
+            draft[i].state = 'none';
+        }
+      }
+    });
+
+    setList(newList);
+  };
+
+  return (
+    <section>
+      <Wrapper>
+        <S.Container>
+          <S.UL>
+            {list.map((item, idx) => (
+              <S.LI
+                state={item.state}
+                key={item.text + item.state}
+                onClick={onClickItem}
+                data-idx={idx}
+              >
+                {item.text}
+              </S.LI>
+            ))}
+          </S.UL>
+        </S.Container>
+      </Wrapper>
+    </section>
+  );
+};
+
+export default AroundType;

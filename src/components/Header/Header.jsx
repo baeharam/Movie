@@ -58,7 +58,9 @@ const Header = ({ color }) => {
               </S.IconButton>
               {isTabletPortrait ? (
                 <S.UL>
-                  <S.LI>둘러보기</S.LI>
+                  <S.LI>
+                    <Link to="/around">둘러보기</Link>
+                  </S.LI>
                   <S.LI>좋아요</S.LI>
                   <S.LI>소개</S.LI>
                 </S.UL>
@@ -73,7 +75,11 @@ const Header = ({ color }) => {
           </S.Container>
           <S.Overlay data-testid="overlay" open={open}>
             <S.OverlayUL>
-              <S.OverlayLI>둘러보기</S.OverlayLI>
+              <S.OverlayLI>
+                <Link to="/around" data-testid="around-link">
+                  둘러보기
+                </Link>
+              </S.OverlayLI>
               <S.OverlayLI>좋아요</S.OverlayLI>
               <S.OverlayLI>소개</S.OverlayLI>
             </S.OverlayUL>

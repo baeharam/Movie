@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GlobalStyle from 'styles/global';
-import { Home } from 'pages/index';
-import Header from 'components/Header/Header';
+import { Home, Around } from 'pages/index';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
       <Router>
-        <Header />
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/around">
+            <Around />
           </Route>
         </Switch>
       </Router>
