@@ -16,6 +16,7 @@
   "rules": {
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "no-plusplus": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   }
 }
