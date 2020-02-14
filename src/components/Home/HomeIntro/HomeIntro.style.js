@@ -35,6 +35,8 @@ const Title = styled.h2`
 const Desc = styled.p`
   font-size: 2em;
   margin-bottom: ${contentMarginBottom};
+  text-align: center;
+  line-height: 1.2;
 `;
 
 const Name = styled.p`

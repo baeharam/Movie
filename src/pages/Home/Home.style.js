@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { IMG_PATH_ORG } from 'utils/constants';
 
 const Container = styled.div`
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  background: url('https://image.tmdb.org/t/p/original/7OMAfDJikBxItZBIug0NJig5DHD.jpg')
-    center no-repeat;
+  background: ${({ backdropPath }) =>
+    `url(${IMG_PATH_ORG}${backdropPath}) center no-repeat`};
   background-size: cover;
   height: 100vh;
 
@@ -22,4 +23,4 @@ const Container = styled.div`
   }
 `;
 
-export { Container };
+export default Container;
