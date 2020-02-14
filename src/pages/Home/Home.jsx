@@ -3,7 +3,7 @@ import { HomeIntro } from 'components/Home/index';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import { useSelector } from 'react-redux';
-import * as S from './Home.style';
+import Container from './Home.style';
 
 const Home = () => {
   const { result } = useSelector(state => state.intro);
@@ -12,7 +12,7 @@ const Home = () => {
     <>
       <Header />
       <HomeIntro />
-      <S.Container backdropPath={result.backdropPath} />
+      <Container backdropPath={result.backdropPath} />
       <Footer />
     </>
   );

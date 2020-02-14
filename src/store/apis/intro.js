@@ -28,6 +28,9 @@ export default async function getIntroMovie() {
       randomMovie.title = result.title;
       randomMovie.tagline = result.tagline;
     }
+
+    randomMovie.title = randomMovie.title.replace(/"/i, '');
+
     return randomMovie;
   } catch (e) {
     throw new Error(e.message);
