@@ -11,7 +11,7 @@ export default async function getIntroMovie() {
     let http = await axios.get(getQuery('trending/movie/week'));
     let trendingList = JSON.parse(http.request.response);
     trendingList = trendingList.results;
-    const randomMovieID =
+    let randomMovieID =
       trendingList[Math.floor(Math.random() * trendingList.length)].id;
 
     while (
@@ -19,6 +19,8 @@ export default async function getIntroMovie() {
       !randomMovie.title ||
       !randomMovie.tagline
     ) {
+      randomMovieID =
+        trendingList[Math.floor(Math.random() * trendingList.length)].id;
       // eslint-disable-next-line no-await-in-loop
       http = await axios.get(
         getQuery(`movie/${randomMovieID}`, ['language=ko-KR']),
