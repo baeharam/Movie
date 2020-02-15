@@ -15,7 +15,7 @@ const AroundCardList = () => {
 
   useEffect(() => {
     dispatch(aroundActions.request({ TYPE: AROUND_POPULAR }));
-  }, []);
+  }, [dispatch]);
 
   return !isLoading ? (
     <section>

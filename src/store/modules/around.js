@@ -7,10 +7,8 @@ export const aroundActions = createRequestAction('AROUND');
 const initialState = {
   aroundSuccess: false,
   aroundError: '',
-  result: [
-    { backdropPath: '', title: '', rating: 0.0 },
-    { backdropPath: '', title: '', rating: 0.0 },
-  ],
+  result: [],
+  type: '',
 };
 
 const reducer = handleActions(
