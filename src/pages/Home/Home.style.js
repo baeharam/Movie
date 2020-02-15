@@ -1,13 +1,11 @@
 import styled from 'styled-components';
-import { IMG_PATH_ORG } from 'utils/constants';
 
 const Container = styled.div`
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  background: ${({ backdropPath }) =>
-    `url(${IMG_PATH_ORG}${backdropPath}) center no-repeat`};
+  background: ${({ backdropPath }) => `url(${backdropPath}) center no-repeat`};
   background-size: cover;
   height: 100vh;
 
