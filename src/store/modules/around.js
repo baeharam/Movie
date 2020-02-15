@@ -8,8 +8,8 @@ const initialState = {
   aroundSuccess: false,
   aroundError: '',
   result: [
-    { backdropPath: '', title: '' },
-    { backdropPath: '', title: '' },
+    { backdropPath: '', title: '', rating: 0.0 },
+    { backdropPath: '', title: '', rating: 0.0 },
   ],
 };
 

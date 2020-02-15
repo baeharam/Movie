@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { device, primaryColor } from 'styles/variables';
+import { device } from 'styles/variables';
 
 const gutter = '10px';
-const cardBorderRadius = '5px';
 
 const Grid = styled.div`
   display: flex;
@@ -11,6 +10,7 @@ const Grid = styled.div`
 `;
 
 const GridItem = styled.div`
+  position: relative;
   flex-basis: 100%;
   padding: ${gutter};
 
@@ -29,25 +29,39 @@ const Card = styled.div`
   background: ${({ backdropPath }) => `url(${backdropPath}) center no-repeat`};
   background-size: cover;
   height: 30vh;
-  border-top-left-radius: ${cardBorderRadius};
-  border-top-right-radius: ${cardBorderRadius};
+  border-radius: 5px;
   overflow: hidden;
   margin-bottom: 3px;
+  box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.3);
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 `;
 
 const Content = styled.div`
-  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
   font-weight: bold;
   color: white;
   text-align: center;
-  overflow: hidden;
-  padding: 0.5rem 0;
-  border-bottom-left-radius: ${cardBorderRadius};
-  border-bottom-right-radius: ${cardBorderRadius};
-  background-color: ${primaryColor};
-  opacity: 0.8;
-  width: 100%;
-  box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.8);
+
+  span {
+    margin-bottom: 1rem;
+  }
 
   @media ${device.TabletPortrait} {
     font-size: 1.5rem;

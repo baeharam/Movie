@@ -8,10 +8,11 @@ export default async function api(payload) {
   const movieList = res.results;
   const result = [];
   movieList.forEach(movie => {
-    if (movie.title && movie.backdrop_path) {
+    if (movie.title && movie.backdrop_path && movie.vote_average) {
       const obj = {};
       obj.title = movie.title;
       obj.backdropPath = `${IMG_PATH_ORG}${movie.backdrop_path}`;
+      obj.rating = movie.vote_average;
       result.push(obj);
     }
   });
