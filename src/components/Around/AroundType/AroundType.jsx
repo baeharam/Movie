@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import produce from 'immer';
+import { useDispatch } from 'react-redux';
 import { Wrapper } from 'styles/variables';
 import { aroundList } from 'utils/constants';
+import { aroundActions } from 'store/modules/around';
 import * as S from './AroundType.style';
 
 const AroundType = () => {
   const [list, setList] = useState(aroundList);
+  const dispatch = useDispatch();
 
   const onClickItem = e => {
     const { idx } = e.target.dataset;
-    const { state } = list[idx];
+    const { state, type } = list[idx];
 
     const newList = produce(list, draft => {
       let temp = null;
@@ -47,6 +50,7 @@ const AroundType = () => {
     });
 
     setList(newList);
+    dispatch(aroundActions.request({ TYPE: type }));
   };
 
   return (

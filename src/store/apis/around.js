@@ -8,10 +8,10 @@ export default async function api(payload) {
   const movieList = res.results;
   const result = [];
   movieList.forEach(movie => {
-    const obj = {};
-    obj.title = movie.title;
-    obj.backdropPath = `${IMG_PATH_ORG}${movie.backdrop_path}`;
-    if (obj.title && obj.backdropPath) {
+    if (movie.title && movie.backdrop_path) {
+      const obj = {};
+      obj.title = movie.title;
+      obj.backdropPath = `${IMG_PATH_ORG}${movie.backdrop_path}`;
       result.push(obj);
     }
   });
