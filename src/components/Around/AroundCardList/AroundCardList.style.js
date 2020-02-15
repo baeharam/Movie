@@ -26,7 +26,7 @@ const GridItem = styled.div`
 const Card = styled.div`
   position: relative;
   flex-basis: 100%;
-  background: ${({ src }) => `url(${src}) center no-repeat`};
+  background: ${({ backdropPath }) => `url(${backdropPath}) center no-repeat`};
   background-size: cover;
   height: 30vh;
   border-top-left-radius: ${cardBorderRadius};
@@ -54,4 +54,11 @@ const Content = styled.div`
   }
 `;
 
-export { Grid, GridItem, Card, Content };
+const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+`;
+
+export { Grid, GridItem, Card, Content, LoaderContainer };

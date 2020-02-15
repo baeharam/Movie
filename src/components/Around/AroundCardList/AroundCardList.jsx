@@ -1,30 +1,38 @@
-import React from 'react';
-import { Wrapper } from 'styles/variables';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Wrapper, primaryColor } from 'styles/variables';
+import Loader from 'components/Loader/Loader';
+import { aroundActions } from 'store/modules/around';
+import { AROUND_POPULAR } from 'utils/constants';
 import * as S from './AroundCardList.style';
 
 const AroundCardList = () => {
-  const img =
-    'https://image.tmdb.org/t/p/original/7OMAfDJikBxItZBIug0NJig5DHD.jpg';
-  const data = [
-    { src: img, title: '인셉션1' },
-    { src: img, title: '인셉션2' },
-    { src: img, title: '인셉션3' },
-    { src: img, title: '인셉션4' },
-  ];
+  const { result } = useSelector(state => state.around);
+  const loadingState = useSelector(state => state.loading);
+  const isLoading = loadingState[aroundActions.TYPE];
+  const dispatch = useDispatch();
 
-  return (
+  useEffect(() => {
+    dispatch(aroundActions.request({ TYPE: AROUND_POPULAR }));
+  }, []);
+
+  return !isLoading ? (
     <section>
       <Wrapper>
         <S.Grid>
-          {data.map(item => (
-            <S.GridItem key={item.title}>
-              <S.Card src={item.src}></S.Card>
-              <S.Content>{item.title}</S.Content>
+          {result.map(movie => (
+            <S.GridItem key={movie.title}>
+              <S.Card backdropPath={movie.backdropPath}></S.Card>
+              <S.Content>{movie.title}</S.Content>
             </S.GridItem>
           ))}
         </S.Grid>
       </Wrapper>
     </section>
+  ) : (
+    <S.LoaderContainer>
+      <Loader color={primaryColor} />
+    </S.LoaderContainer>
   );
 };
 

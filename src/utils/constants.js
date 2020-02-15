@@ -18,3 +18,17 @@ export const getQuery = (path, queries = []) => {
 };
 
 export const IMG_PATH_ORG = 'https://image.tmdb.org/t/p/original';
+
+export const AROUND_POPULAR = 'AROUND_POPULAR';
+export const AROUND_NOW_PLAYING = 'AROUND_NOW_PLAYING';
+export const AROUND_TOP_RATED = 'AROUND_TOP_RATED';
+export const AROUND_UPCOMING = 'AROUND_UPCOMING';
+
+const korean = 'language=ko-KR';
+
+export const aroundQueries = {
+  [AROUND_NOW_PLAYING]: getQuery('movie/now_playing', [korean]),
+  [AROUND_POPULAR]: getQuery('movie/popular', [korean]),
+  [AROUND_TOP_RATED]: getQuery('movie/top_rated', [korean]),
+  [AROUND_UPCOMING]: getQuery('movie/upcoming', [korean]),
+};
