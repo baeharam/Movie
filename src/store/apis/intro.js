@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getQuery, IMG_PATH_ORG } from 'utils/constants';
 
-export default async function getIntroMovie() {
+export default async function introAPI() {
   const randomMovie = {};
   let http = await axios.get(getQuery('trending/movie/week'));
   let trendingList = JSON.parse(http.request.response);

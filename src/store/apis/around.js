@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { aroundQueries, IMG_PATH_ORG } from 'utils/constants';
 
-export default async function api(payload) {
+export default async function aroundAPI(payload) {
   const query = aroundQueries[payload.TYPE];
   const http = await axios.get(query);
   const res = JSON.parse(http.request.response);
