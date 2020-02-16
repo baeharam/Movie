@@ -18,5 +18,13 @@
     "no-plusplus": "off",
     "no-param-reassign": "off",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
 }
