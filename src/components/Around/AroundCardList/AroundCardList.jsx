@@ -23,9 +23,12 @@ const AroundCardList = () => {
         <S.Grid>
           {result.map(movie => (
             <S.GridItem key={movie.title}>
-              <S.Card backdropPath={movie.backdropPath}></S.Card>
+              <S.Card
+                data-testid="around-backdropPath"
+                backdropPath={movie.backdropPath}
+              />
               <S.Content>
-                <span>{movie.title}</span>
+                <span data-testid="around-title">{movie.title}</span>
                 <StarRatings
                   rating={movie.rating / 2}
                   starRatedColor="#ffda33"
