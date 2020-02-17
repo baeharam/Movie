@@ -17,8 +17,7 @@ const AroundType = () => {
     const newList = produce(list, draft => {
       let temp = null;
       if (state === 'next') {
-        // eslint-disable-next-line prefer-destructuring
-        temp = draft[0];
+        [temp] = draft;
         for (let i = 1; i < draft.length; i++) {
           draft[i - 1] = draft[i];
         }
@@ -32,7 +31,8 @@ const AroundType = () => {
       }
 
       for (let i = 0; i < draft.length; i++) {
-        const middleIdx = Math.floor(draft.length / 2);
+        let middleIdx = Math.floor(draft.length / 2);
+        if (draft.length % 2 === 0) middleIdx -= 1;
         switch (i) {
           case middleIdx:
             draft[i].state = 'cur';

@@ -63,6 +63,7 @@ const Content = styled.div`
 
   span {
     margin-bottom: 1rem;
+    padding: 0 1rem;
   }
 
   @media ${device.TabletPortrait} {

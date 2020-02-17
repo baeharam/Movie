@@ -26,7 +26,7 @@ export default async function introAPI() {
     randomMovie.tagline = result.tagline;
   }
 
-  randomMovie.title = randomMovie.title.replace(/"/i, '');
+  randomMovie.title = randomMovie.title.replace(/“|”/i, '');
 
   return randomMovie;
 }
