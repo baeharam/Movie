@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // Values
 
 export const headerHeight = '7vh';
-export const footerHeight = '7vh';
 
 // Colors
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { footerZindex, footerHeight } from 'styles/variables';
+import { footerZindex } from 'styles/variables';
 
 const Footer = styled.footer`
-  height: ${footerHeight};
+  padding: 1rem 0;
 `;
 
 const Container = styled.div`
