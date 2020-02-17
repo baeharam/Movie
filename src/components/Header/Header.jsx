@@ -1,49 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Wrapper, device } from 'styles/variables';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import LocationDisplay from 'utils/locationDisplay';
+import Overlay from 'components/Overlay/Overlay';
 import * as S from './Header.style';
+import OverlayButton from './OverlayButton/OverlayButton';
 
-const MenuButton = ({ onClickMenu, open, color }) => {
-  return (
-    <S.MenuButton
-      data-testid="menu-button"
-      open={open}
-      onClick={onClickMenu}
-      color={color}
-      type="button"
-      aria-label="메뉴"
-    >
-      <div />
-      <div />
-      <div />
-    </S.MenuButton>
-  );
-};
-
-MenuButton.propTypes = {
-  onClickMenu: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  color: PropTypes.string.isRequired,
-};
-
-const Header = ({ color }) => {
-  const [open, setOpen] = useState(false);
+const Header = ({ color, bgColor }) => {
   const isTabletPortrait = useMediaQuery({ query: device.TabletPortrait });
-
-  const onClickMenu = () => {
-    setOpen(!open);
-  };
+  const { isOpen } = useSelector(state => state.overlay);
 
   return (
     <>
-      <S.Header>
+      <S.Header bgColor={bgColor}>
         <Wrapper>
-          <S.Container open={open} color={color}>
+          <S.Container isOpen={isOpen} color={color}>
             <Link to="/">
-              <S.LogoButton data-testid="logo-button" type="button" open={open}>
+              <S.LogoButton
+                data-testid="logo-button"
+                type="button"
+                isOpen={isOpen}
+              >
                 movie
               </S.LogoButton>
             </Link>
@@ -52,7 +32,7 @@ const Header = ({ color }) => {
                 data-testid="search-button"
                 type="button"
                 aria-label="검색버튼"
-                open={open}
+                isOpen={isOpen}
               >
                 <S.SearchIcon />
               </S.IconButton>
@@ -65,25 +45,11 @@ const Header = ({ color }) => {
                   <S.LI>소개</S.LI>
                 </S.UL>
               ) : (
-                <MenuButton
-                  onClickMenu={onClickMenu}
-                  open={open}
-                  color={color}
-                />
+                <OverlayButton color={color} />
               )}
             </S.MenuContainer>
           </S.Container>
-          <S.Overlay data-testid="overlay" open={open}>
-            <S.OverlayUL>
-              <S.OverlayLI>
-                <Link to="/around" data-testid="around-link">
-                  둘러보기
-                </Link>
-              </S.OverlayLI>
-              <S.OverlayLI>좋아요</S.OverlayLI>
-              <S.OverlayLI>소개</S.OverlayLI>
-            </S.OverlayUL>
-          </S.Overlay>
+          <Overlay />
         </Wrapper>
       </S.Header>
       <LocationDisplay />
@@ -93,10 +59,12 @@ const Header = ({ color }) => {
 
 Header.defaultProps = {
   color: 'white',
+  bgColor: 'transparent',
 };
 
 Header.propTypes = {
   color: PropTypes.string,
+  bgColor: PropTypes.string,
 };
 
 export default Header;
