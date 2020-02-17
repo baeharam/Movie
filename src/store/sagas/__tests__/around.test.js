@@ -22,7 +22,11 @@ describe('around 사가 테스트', () => {
       },
     };
 
-    await runSaga(mockedStore, mockedSaga, aroundActions.REQUEST).toPromise();
+    await runSaga(
+      mockedStore,
+      mockedSaga,
+      aroundActions.request({ type: 'testType' }),
+    ).toPromise();
 
     expect(mockedAPI.mock.calls.length).toBe(1);
     expect(dispatchedActions).toContainEqual(
