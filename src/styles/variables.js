@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // Values
 
 export const headerHeight = '7vh';
-export const footerHeight = '7vh';
 
 // Colors
 
@@ -12,12 +11,22 @@ export const secondaryColor = '#f2f2f2';
 
 // z-indexes
 
-export const headerZindex = 5;
-export const menuZindex = 4;
-export const homeIntroZindex = 3;
+export const headerZindex = 7;
+export const overlayZindex = 6;
 export const footerZindex = 5;
+export const homeIntroZindex = 3;
 
 // Layout components
+
+export const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  main {
+    padding-top: ${headerHeight};
+    flex: 1;
+  }
+`;
 
 export const Wrapper = styled.div`
   width: 90vw;

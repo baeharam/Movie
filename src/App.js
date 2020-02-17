@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import GlobalStyle from 'styles/global';
 import { Home, Around } from 'pages/index';
 
 const App = () => {
+  const { isOpen } = useSelector(state => state.overlay);
+
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle isOpen={isOpen} />
       <Router>
         <Switch>
           <Route exact path="/">

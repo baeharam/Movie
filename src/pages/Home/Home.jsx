@@ -5,7 +5,7 @@ import Footer from 'components/Footer/Footer';
 import { useSelector } from 'react-redux';
 import { introActions } from 'store/modules/intro';
 import Loader from 'components/Loader/Loader';
-import { primaryColor } from 'styles/variables';
+import { primaryColor, Layout } from 'styles/variables';
 import * as S from './Home.style';
 
 const Home = () => {
@@ -14,12 +14,14 @@ const Home = () => {
   const isLoading = loadingState[introActions.TYPE];
 
   return !isLoading ? (
-    <>
+    <Layout>
       <Header />
-      <HomeIntro />
+      <main>
+        <HomeIntro />
+      </main>
       <S.Container backdropPath={result.backdropPath} />
       <Footer />
-    </>
+    </Layout>
   ) : (
     <S.LoaderContainer>
       <Loader color={primaryColor} />

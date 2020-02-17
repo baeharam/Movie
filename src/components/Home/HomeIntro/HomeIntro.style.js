@@ -18,6 +18,7 @@ const Container = styled.div`
   align-items: center;
   color: white;
   font-size: 1rem;
+  text-align: center;
   height: calc(100vh - (${headerHeight} + ${footerHeight}));
 
   @media ${device.TabletPortrait} {
@@ -35,7 +36,6 @@ const Title = styled.h2`
 const Desc = styled.p`
   font-size: 2em;
   margin-bottom: ${contentMarginBottom};
-  text-align: center;
   line-height: 1.2;
 `;
 

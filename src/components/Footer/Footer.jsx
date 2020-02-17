@@ -8,7 +8,7 @@ const Footer = ({ color }) => {
     <footer>
       <Wrapper>
         <S.Container>
-          <S.Copyright color={color}>만든이. 배하람</S.Copyright>
+          <S.Copyright color={color}>Made by HaramBae</S.Copyright>
         </S.Container>
       </Wrapper>
     </footer>

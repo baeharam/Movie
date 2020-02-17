@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { footerHeight, footerZindex } from 'styles/variables';
+import { footerZindex } from 'styles/variables';
 
 const Container = styled.div`
   position: relative;
@@ -7,14 +7,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${footerHeight};
   padding: 1rem 0;
   box-sizing: border-box;
 `;
 
 const Copyright = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: ${({ color }) => color};
+  opacity: 0.7;
 `;
 
 export { Copyright, Container };

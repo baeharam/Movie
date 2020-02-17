@@ -1,17 +1,19 @@
 import React from 'react';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-import { primaryColor } from 'styles/variables';
+import { primaryColor, Layout } from 'styles/variables';
 import { AroundType, AroundCardList } from 'components/Around/index';
 
 const Around = () => {
   return (
-    <>
-      <Header color={primaryColor} />
-      <AroundType />
-      <AroundCardList />
+    <Layout>
+      <Header color={primaryColor} bgColor="white" />
+      <main>
+        <AroundType />
+        <AroundCardList />
+      </main>
       <Footer color={primaryColor} />
-    </>
+    </Layout>
   );
 };
 
