@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // Values
 
 export const headerHeight = '7vh';
+export const footerHeight = '7vh';
 
 // Colors
 
@@ -21,6 +22,7 @@ export const homeIntroZindex = 3;
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
 
   main {
     padding-top: ${headerHeight};

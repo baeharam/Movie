@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import {
-  homeIntroZindex,
-  device,
-  headerHeight,
-  footerHeight,
-} from 'styles/variables';
+import { homeIntroZindex, device } from 'styles/variables';
 
 const HomeIntro = styled.section`
   position: relative;
@@ -19,7 +14,6 @@ const Container = styled.div`
   color: white;
   font-size: 1rem;
   text-align: center;
-  height: calc(100vh - (${headerHeight} + ${footerHeight}));
 
   @media ${device.TabletPortrait} {
     font-size: 2rem;

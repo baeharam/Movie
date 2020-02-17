@@ -5,13 +5,13 @@ import * as S from './Footer.style';
 
 const Footer = ({ color }) => {
   return (
-    <footer>
+    <S.Footer>
       <Wrapper>
         <S.Container>
           <S.Copyright color={color}>Made by HaramBae</S.Copyright>
         </S.Container>
       </Wrapper>
-    </footer>
+    </S.Footer>
   );
 };
 

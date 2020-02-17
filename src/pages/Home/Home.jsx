@@ -16,9 +16,9 @@ const Home = () => {
   return !isLoading ? (
     <Layout>
       <Header />
-      <main>
+      <S.Main>
         <HomeIntro />
-      </main>
+      </S.Main>
       <S.Container backdropPath={result.backdropPath} />
       <Footer />
     </Layout>

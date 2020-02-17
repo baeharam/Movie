@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const Main = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Container = styled.div`
   position: absolute;
   left: 0;
@@ -28,4 +34,4 @@ const LoaderContainer = styled.div`
   height: 100vh;
 `;
 
-export { Container, LoaderContainer };
+export { Main, Container, LoaderContainer };
