@@ -11,12 +11,12 @@ const HomeIntro = () => {
       <Wrapper>
         <S.Container>
           <S.Title>오늘의 영화</S.Title>
-          <S.Desc>
+          <S.Desc data-testid="home-tagline">
             &quot;
             {result.tagline}
             &quot;
           </S.Desc>
-          <S.Name>{result.title}</S.Name>
+          <S.Name data-testid="home-title">{result.title}</S.Name>
           <S.MoreButton>더보기</S.MoreButton>
         </S.Container>
       </Wrapper>
