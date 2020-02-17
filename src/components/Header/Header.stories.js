@@ -1,6 +1,7 @@
 import React from 'react';
 import { primaryColor } from 'styles/variables';
-import withTestRouter from 'utils/withTestRouter';
+import withRouter from 'utils/withRouter';
+import withRedux from 'utils/withRedux';
 import { Container } from 'pages/Home/Home.style';
 import Header from './Header';
 
@@ -9,7 +10,7 @@ export default {
   component: Header,
 };
 
-export const black = () => withTestRouter(<Header />);
+export const black = () => withRedux(withRouter(<Header />));
 black.story = {
   decorators: [
     storyFn => (
@@ -25,11 +26,14 @@ black.story = {
   ],
 };
 
-export const white = () => withTestRouter(<Header color={primaryColor} />);
+export const white = () =>
+  withRedux(withRouter(<Header color={primaryColor} />));
 export const withBackground = () =>
-  withTestRouter(
-    <>
-      <Header />
-      <Container />
-    </>,
+  withRedux(
+    withRouter(
+      <>
+        <Header />
+        <Container />
+      </>,
+    ),
   );

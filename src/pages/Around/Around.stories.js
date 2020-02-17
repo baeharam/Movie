@@ -1,5 +1,6 @@
 import React from 'react';
-import withTestRouter from 'utils/withTestRouter';
+import withRouter from 'utils/withRouter';
+import withRedux from 'utils/withRedux';
 import Around from './Around';
 
 export default {
@@ -7,4 +8,4 @@ export default {
   component: Around,
 };
 
-export const normal = () => withTestRouter(<Around />, '/around');
+export const normal = () => withRedux(withRouter(<Around />, '/around'));
