@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrapper } from 'styles/variables';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as S from './HomeIntro.style';
 
 const HomeIntro = () => {
@@ -17,7 +18,9 @@ const HomeIntro = () => {
             &quot;
           </S.Desc>
           <S.Name data-testid="home-title">{result.title}</S.Name>
-          <S.MoreButton>더보기</S.MoreButton>
+          <S.MoreButton>
+            <Link to={`/detail/${result.id}`}>더보기</Link>
+          </S.MoreButton>
         </S.Container>
       </Wrapper>
     </S.HomeIntro>
