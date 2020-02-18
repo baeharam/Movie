@@ -10,13 +10,15 @@ export const getQuery = (path, queries = []) => {
 };
 
 export const IMG_PATH_ORG = 'https://image.tmdb.org/t/p/original';
+export const IMG_PATH_W500 = 'https://image.tmdb.org/t/p/w500';
+export const YOUTUBE_PATH = 'http://www.youtube.com/embed/';
 
 export const AROUND_NOW_PLAYING = 'AROUND_NOW_PLAYING';
 export const AROUND_POPULAR = 'AROUND_POPULAR';
 export const AROUND_TOP_RATED = 'AROUND_TOP_RATED';
 export const AROUND_UPCOMING = 'AROUND_UPCOMING';
 
-const korean = 'language=ko-KR';
+export const korean = 'language=ko-KR';
 
 export const aroundQueries = {
   [AROUND_NOW_PLAYING]: getQuery('movie/now_playing', [korean]),
