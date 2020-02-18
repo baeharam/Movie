@@ -8,6 +8,7 @@ const initialState = {
   introSuccess: false,
   introError: '',
   result: {
+    id: '',
     backdropPath: '',
     title: '',
     tagline: '',

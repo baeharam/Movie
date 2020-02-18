@@ -7,7 +7,14 @@ export const aroundActions = createRequestAction('AROUND');
 const initialState = {
   aroundSuccess: false,
   aroundError: '',
-  result: [],
+  result: [
+    {
+      id: '',
+      title: '',
+      backdropPath: '',
+      rating: 0.0,
+    },
+  ],
   type: '',
 };
 

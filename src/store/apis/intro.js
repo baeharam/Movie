@@ -24,6 +24,7 @@ export default async function introAPI() {
     randomMovie.backdropPath = `${IMG_PATH_ORG}${result.backdrop_path}`;
     randomMovie.title = result.title;
     randomMovie.tagline = result.tagline;
+    randomMovie.id = result.id;
   }
 
   randomMovie.title = randomMovie.title.replace(/“|”/i, '');
