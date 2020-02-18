@@ -7,6 +7,7 @@ describe('intro 리듀서 테스트', () => {
     expect(state.introSuccess).toBeFalsy;
     expect(state.introError).toBeEmpty;
     expect(state.result).toStrictEqual({
+      id: '',
       backdropPath: '',
       title: '',
       tagline: '',

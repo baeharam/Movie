@@ -6,7 +6,14 @@ describe('around 리듀서 테스트', () => {
   test('초기 상태를 반환해야 함', () => {
     expect(state.aroundSuccess).toBeFalsy;
     expect(state.aroundError).toBeEmpty;
-    expect(state.result).toStrictEqual([]);
+    expect(state.result).toStrictEqual([
+      {
+        id: '',
+        title: '',
+        backdropPath: '',
+        rating: 0.0,
+      },
+    ]);
   });
 
   test('성공 상태를 반환해야 함', () => {
