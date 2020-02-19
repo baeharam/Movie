@@ -1,17 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Swiper from 'react-id-swiper';
+import 'swiper/css/swiper.css';
 import { Wrapper } from 'styles/variables';
 import * as S from './DetailCasts.style';
 
 const DetailCasts = () => {
   const { result } = useSelector(state => state.detail);
-  const setting = {
-    dots: false,
-    infinite: false,
-    slidesToShow: 2,
+  const params = {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      clickable: true,
+    },
   };
 
   return (
@@ -19,7 +20,7 @@ const DetailCasts = () => {
       <Wrapper>
         <S.Container>
           <S.CastTitle>출연</S.CastTitle>
-          <Slider {...setting}>
+          <Swiper {...params}>
             {result.casts.map(cast => (
               <S.CastContent key={cast.name}>
                 <S.CastProfile src={cast.profilePath} alt="프로필" />
@@ -27,7 +28,7 @@ const DetailCasts = () => {
                 <S.CastRole>{cast.role} 역</S.CastRole>
               </S.CastContent>
             ))}
-          </Slider>
+          </Swiper>
         </S.Container>
       </Wrapper>
     </S.Casts>

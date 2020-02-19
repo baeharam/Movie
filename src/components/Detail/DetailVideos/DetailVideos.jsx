@@ -1,17 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Swiper from 'react-id-swiper';
+import 'swiper/css/swiper.css';
 import { Wrapper } from 'styles/variables';
 import * as S from './DetailVideos.style';
 
 const DetailVideos = () => {
   const { result } = useSelector(state => state.detail);
-  const setting = {
-    dots: false,
-    infinite: false,
-    slidesToShow: 1,
+  const params = {
+    spaceBetween: 30,
+    pagination: {
+      clickable: true,
+    },
   };
 
   return (
@@ -19,13 +19,17 @@ const DetailVideos = () => {
       <Wrapper>
         <S.Container>
           <S.VideoTitle>예고편</S.VideoTitle>
-          <Slider {...setting}>
-            {result.videos.map(video => (
-              <S.VideoIframe key={video}>
-                <iframe title={video} src={video} frameBorder="0" />
-              </S.VideoIframe>
-            ))}
-          </Slider>
+          {result.videos.length ? (
+            <Swiper {...params}>
+              {result.videos.map(video => (
+                <S.VideoIframe key={video}>
+                  <iframe title={video} src={video} frameBorder="0" />
+                </S.VideoIframe>
+              ))}
+            </Swiper>
+          ) : (
+            <p>예고편이 없습니다.</p>
+          )}
         </S.Container>
       </Wrapper>
     </S.Videos>
