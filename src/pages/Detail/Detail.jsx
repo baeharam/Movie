@@ -23,7 +23,7 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     dispatch(detailActions.request({ id }));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <Layout>
