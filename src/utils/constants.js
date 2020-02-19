@@ -1,5 +1,5 @@
-const API_KEY = 'd5e4a2eb5fb264de1583b6945d203546';
-const BASE_URL = 'https://api.themoviedb.org/3/';
+export const API_KEY = 'd5e4a2eb5fb264de1583b6945d203546';
+export const BASE_URL = 'https://api.themoviedb.org/3/';
 
 export const getQuery = (path, queries = []) => {
   let url = `${BASE_URL}${path}?api_key=${API_KEY}`;
@@ -9,9 +9,15 @@ export const getQuery = (path, queries = []) => {
   return url;
 };
 
-export const IMG_PATH_ORG = 'https://image.tmdb.org/t/p/original';
-export const IMG_PATH_W500 = 'https://image.tmdb.org/t/p/w500';
-export const YOUTUBE_PATH = 'http://www.youtube.com/embed/';
+export const IMG_PATH = 'https://image.tmdb.org/t/p/';
+export const imagePath = {
+  original: `${IMG_PATH}original`,
+  w500: `${IMG_PATH}w500`,
+  w780: `${IMG_PATH}w780`,
+};
+export const YOUTUBE_PATH = 'https://www.youtube.com/watch?v=';
+export const getYoutubeThumbnail = key =>
+  `http://i.ytimg.com/vi/${key}/sddefault.jpg`;
 
 export const AROUND_NOW_PLAYING = 'AROUND_NOW_PLAYING';
 export const AROUND_POPULAR = 'AROUND_POPULAR';
@@ -21,10 +27,10 @@ export const AROUND_UPCOMING = 'AROUND_UPCOMING';
 export const korean = 'language=ko-KR';
 
 export const aroundQueries = {
-  [AROUND_NOW_PLAYING]: getQuery('movie/now_playing', [korean]),
-  [AROUND_POPULAR]: getQuery('movie/popular', [korean]),
-  [AROUND_TOP_RATED]: getQuery('movie/top_rated', [korean]),
-  [AROUND_UPCOMING]: getQuery('movie/upcoming', [korean]),
+  [AROUND_NOW_PLAYING]: 'movie/now_playing',
+  [AROUND_POPULAR]: 'movie/popular',
+  [AROUND_TOP_RATED]: 'movie/top_rated',
+  [AROUND_UPCOMING]: 'movie/upcoming',
 };
 
 export const aroundList = [
