@@ -14,11 +14,4 @@ const GalleryTitle = styled.h2`
   margin-bottom: 1rem;
 `;
 
-const GalleryImage = styled.div`
-  img {
-    width: 90%;
-    margin: 0 auto;
-  }
-`;
-
-export { Gallery, Container, GalleryTitle, GalleryImage };
+export { Gallery, Container, GalleryTitle };

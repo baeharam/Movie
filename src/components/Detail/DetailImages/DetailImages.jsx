@@ -23,7 +23,7 @@ const DetailImages = () => {
           {result.images.length ? (
             <Swiper {...params}>
               {result.images.map(image => (
-                <S.GalleryImage key={image} src={image} alt="사진" />
+                <img key={image} src={image} alt="사진" />
               ))}
             </Swiper>
           ) : (
