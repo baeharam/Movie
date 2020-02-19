@@ -1,22 +1,8 @@
 import styled from 'styled-components';
-import { primaryColor } from 'styles/variables';
-
-const Casts = styled.section`
-  margin-bottom: 2rem;
-`;
-
-const Container = styled.div`
-  text-align: center;
-  color: ${primaryColor};
-`;
 
 const CastContent = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const CastTitle = styled.h2`
-  margin-bottom: 1rem;
 `;
 
 const CastProfile = styled.img`
@@ -36,12 +22,4 @@ const CastRole = styled.p`
   font-size: 0.8rem;
 `;
 
-export {
-  Casts,
-  Container,
-  CastContent,
-  CastTitle,
-  CastProfile,
-  CastName,
-  CastRole,
-};
+export { CastContent, CastProfile, CastName, CastRole };

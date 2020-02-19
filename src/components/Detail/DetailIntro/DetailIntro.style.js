@@ -10,18 +10,6 @@ const Background = styled.section`
   filter: grayscale(100%);
 `;
 
-const Intro = styled.section`
-  margin-bottom: 2rem;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: ${primaryColor};
-  text-align: center;
-`;
-
 const Poster = styled.img`
   display: block;
   width: 50vw;
@@ -50,13 +38,4 @@ const OverviewContent = styled.div`
   line-height: 1.5;
 `;
 
-export {
-  Background,
-  Intro,
-  Container,
-  Poster,
-  Info,
-  Divider,
-  OverviewTitle,
-  OverviewContent,
-};
+export { Background, Poster, Info, Divider, OverviewTitle, OverviewContent };

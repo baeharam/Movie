@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
 import { Wrapper } from 'styles/variables';
+import { Section, Container, Title } from '../Detail.style';
 import * as S from './DetailVideos.style';
 
 const DetailVideos = () => {
@@ -15,24 +16,32 @@ const DetailVideos = () => {
   };
 
   return (
-    <S.Videos>
+    <Section>
       <Wrapper>
-        <S.Container>
-          <S.VideoTitle>예고편</S.VideoTitle>
+        <Container>
+          <Title>예고편</Title>
           {result.videos.length ? (
             <Swiper {...params}>
               {result.videos.map(video => (
-                <S.VideoIframe key={video}>
-                  <iframe title={video} src={video} frameBorder="0" />
-                </S.VideoIframe>
+                <a
+                  key={video.path}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={video.path}
+                >
+                  <S.Video>
+                    <S.Thumbnail src={video.thumbnail} alt="썸네일" />
+                    <S.Play />
+                  </S.Video>
+                </a>
               ))}
             </Swiper>
           ) : (
             <p>예고편이 없습니다.</p>
           )}
-        </S.Container>
+        </Container>
       </Wrapper>
-    </S.Videos>
+    </Section>
   );
 };
 

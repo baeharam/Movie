@@ -4,6 +4,7 @@ import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
 import { Wrapper } from 'styles/variables';
 import * as S from './DetailCasts.style';
+import { Section, Container, Title } from '../Detail.style';
 
 const DetailCasts = () => {
   const { result } = useSelector(state => state.detail);
@@ -16,10 +17,10 @@ const DetailCasts = () => {
   };
 
   return (
-    <S.Casts>
+    <Section>
       <Wrapper>
-        <S.Container>
-          <S.CastTitle>출연</S.CastTitle>
+        <Container>
+          <Title>출연</Title>
           <Swiper {...params}>
             {result.casts.map(cast => (
               <S.CastContent key={cast.name}>
@@ -29,9 +30,9 @@ const DetailCasts = () => {
               </S.CastContent>
             ))}
           </Swiper>
-        </S.Container>
+        </Container>
       </Wrapper>
-    </S.Casts>
+    </Section>
   );
 };
 

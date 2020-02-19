@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Wrapper } from 'styles/variables';
 import * as S from './DetailIntro.style';
+import { Section, Container } from '../Detail.style';
 
 const DetailIntro = () => {
   const { result } = useSelector(state => state.detail);
@@ -9,9 +10,9 @@ const DetailIntro = () => {
   return (
     <>
       <S.Background backdropPath={result.backdropPath} />
-      <S.Intro>
+      <Section>
         <Wrapper>
-          <S.Container>
+          <Container>
             <S.Poster src={result.posterPath} alt="포스터" />
             <h1>{result.title}</h1>
             <S.Info>
@@ -23,9 +24,9 @@ const DetailIntro = () => {
             <S.OverviewTitle>줄거리</S.OverviewTitle>
             {result.tagline && <h3>{result.tagline}</h3>}
             <S.OverviewContent>{result.overview}</S.OverviewContent>
-          </S.Container>
+          </Container>
         </Wrapper>
-      </S.Intro>
+      </Section>
     </>
   );
 };
