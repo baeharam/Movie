@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-import { Layout, primaryColor } from 'styles/variables';
+import { Layout, primaryColor, device } from 'styles/variables';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailActions } from 'store/modules/detail';
 import PropTypes from 'prop-types';
@@ -11,8 +11,10 @@ import {
   DetailImages,
   DetailVideos,
   DetailSimilars,
+  DetailLaptopIntro,
 } from 'components/Detail/index';
 import Loader from 'components/Loader/Loader';
+import { useMediaQuery } from 'react-responsive';
 import * as S from './Detail.style';
 
 const Detail = ({ match }) => {
@@ -20,6 +22,7 @@ const Detail = ({ match }) => {
   const dispatch = useDispatch();
   const { id } = match.params;
   const isLoading = loadingState[detailActions.TYPE];
+  const isLaptop = useMediaQuery({ query: device.Laptops });
 
   useEffect(() => {
     dispatch(detailActions.request({ id }));
@@ -35,7 +38,7 @@ const Detail = ({ match }) => {
           </S.LoaderContainer>
         ) : (
           <>
-            <DetailIntro />
+            {isLaptop ? <DetailLaptopIntro /> : <DetailIntro />}
             <DetailCasts />
             <DetailImages />
             <DetailVideos />

@@ -22,6 +22,10 @@ const Container = styled.div`
   justify-content: ${({ isOpen }) => (isOpen ? 'flex-end' : 'space-between')};
   align-items: center;
   color: ${({ color }) => color};
+
+  @media ${device.Laptops} {
+    width: 1000px;
+  }
 `;
 
 const LogoButton = styled.button`

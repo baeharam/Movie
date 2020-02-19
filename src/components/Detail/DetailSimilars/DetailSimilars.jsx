@@ -16,6 +16,14 @@ const DetailSimilars = () => {
     pagination: {
       clickable: true,
     },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 4,
+      },
+    },
   };
 
   return (

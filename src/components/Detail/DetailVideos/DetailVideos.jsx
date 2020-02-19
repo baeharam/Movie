@@ -10,8 +10,17 @@ const DetailVideos = () => {
   const { result } = useSelector(state => state.detail);
   const params = {
     spaceBetween: 30,
+    slidesPerView: 1,
     pagination: {
       clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 4,
+      },
     },
   };
 

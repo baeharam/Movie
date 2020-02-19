@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor } from 'styles/variables';
+import { primaryColor, device } from 'styles/variables';
 
 const Background = styled.section`
   position: relative;
@@ -8,6 +8,10 @@ const Background = styled.section`
   background-size: cover;
   height: 40vh;
   filter: grayscale(100%);
+
+  @media ${device.Laptops} {
+    height: 60vh;
+  }
 `;
 
 const Poster = styled.img`
@@ -15,12 +19,20 @@ const Poster = styled.img`
   width: 50vw;
   margin-top: -150px;
   box-shadow: 0 5px 2px 0 rgba(0, 0, 0, 0.5);
+
+  @media ${device.TabletPortrait} {
+    width: 30vw;
+  }
 `;
 
 const Info = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-around;
+
+  @media ${device.TabletPortrait} {
+    font-size: 1.5rem;
+  }
 `;
 
 const Divider = styled.div`
