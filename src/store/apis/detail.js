@@ -11,14 +11,22 @@ const getMovieDetail = async id => {
   const query = getQuery(`movie/${id}`, [korean]);
   const http = await axios.get(query);
   const result = JSON.parse(http.request.response);
+
+  let genres = '';
+  const genreList = result.genres.map(genre => genre.name);
+  if (result.genres.length > 3) {
+    genreList.splice(3);
+  }
+  genres = genreList.join(' | ');
+
   return {
     title: result.title,
     originalTitle: result.original_title,
     tagline: result.tagline,
     releaseDate: result.release_date,
-    runtime: result.runtime,
-    rating: result.vote_average,
-    genres: result.genres.map(genre => genre.name),
+    runtime: `${result.runtime} 분`,
+    rating: `★ ${result.vote_average}`,
+    genres,
     overview: result.overview,
     posterPath: `${IMG_PATH_W500}${result.poster_path}`,
     backdropPath: `${IMG_PATH_ORG}${result.backdrop_path}`,
