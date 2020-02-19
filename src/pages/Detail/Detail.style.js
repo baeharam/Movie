@@ -5,4 +5,11 @@ const Main = styled.main`
   background-color: ${secondaryColor};
 `;
 
-export default Main;
+const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
+export { Main, LoaderContainer };

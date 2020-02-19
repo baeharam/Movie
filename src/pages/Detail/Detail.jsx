@@ -11,10 +11,11 @@ import {
   DetailImages,
   DetailVideos,
 } from 'components/Detail/index';
+import Loader from 'components/Loader/Loader';
+import * as S from './Detail.style';
 
 const Detail = ({ match }) => {
   const loadingState = useSelector(state => state.loading);
-  const { result } = useSelector(state => state.detail);
   const dispatch = useDispatch();
   const { id } = match.params;
   const isLoading = loadingState[detailActions.TYPE];
@@ -27,10 +28,18 @@ const Detail = ({ match }) => {
     <Layout>
       <Header color={primaryColor} bgColor="white" />
       <main>
-        <DetailIntro />
-        <DetailCasts />
-        <DetailImages />
-        <DetailVideos />
+        {isLoading ? (
+          <S.LoaderContainer>
+            <Loader color={primaryColor} />
+          </S.LoaderContainer>
+        ) : (
+          <>
+            <DetailIntro />
+            <DetailCasts />
+            <DetailImages />
+            <DetailVideos />
+          </>
+        )}
       </main>
       <Footer />
     </Layout>
