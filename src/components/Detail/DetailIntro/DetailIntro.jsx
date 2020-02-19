@@ -16,7 +16,7 @@ const DetailIntro = () => {
             <S.Poster src={result.posterPath} alt="포스터" />
             <h1>{result.title}</h1>
             <S.Info>
-              <span>{result.rating}</span>
+              <span>★ {result.rating}</span>
               <span>{result.genres}</span>
               <span>{result.runtime}</span>
             </S.Info>

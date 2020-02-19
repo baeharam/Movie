@@ -22,7 +22,7 @@ const getMovieDetail = async id => {
     tagline: result.tagline,
     releaseDate: result.release_date,
     runtime: `${result.runtime} 분`,
-    rating: `★ ${result.vote_average}`,
+    rating: result.vote_average,
     genres,
     overview: result.overview,
     posterPath: `${imagePath.w500}${result.poster_path}`,
