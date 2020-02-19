@@ -21,7 +21,9 @@ const App = () => {
           <Route
             exact
             path="/detail/:id"
-            render={({ match }) => <Detail match={match} />}
+            render={({ match }) => (
+              <Detail key={match.params.id} match={match} />
+            )}
           />
         </Switch>
       </Router>
