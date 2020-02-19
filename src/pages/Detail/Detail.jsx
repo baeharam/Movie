@@ -10,6 +10,7 @@ import {
   DetailCasts,
   DetailImages,
   DetailVideos,
+  DetailSimilars,
 } from 'components/Detail/index';
 import Loader from 'components/Loader/Loader';
 import * as S from './Detail.style';
@@ -38,10 +39,11 @@ const Detail = ({ match }) => {
             <DetailCasts />
             <DetailImages />
             <DetailVideos />
+            <DetailSimilars />
           </>
         )}
       </main>
-      <Footer />
+      <Footer color={primaryColor} />
     </Layout>
   );
 };
