@@ -43,7 +43,9 @@ const DetailIntro = () => {
               <span>{result.runtime}</span>
             </S.Info>
             <S.Like type="button" onClick={onClickLike}>
-              <span>{isLike ? '좋아요 취소' : '좋아요'}</span>
+              <span data-testid="like-button">
+                {isLike ? '좋아요 취소' : '좋아요'}
+              </span>
               {isLike ? <S.DislikeIcon /> : <S.LikeIcon />}
             </S.Like>
             <S.Divider />

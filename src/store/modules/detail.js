@@ -20,6 +20,7 @@ const initialState = {
     backdropPath: '',
     images: [],
     videos: [],
+    simliars: [],
     casts: [
       {
         name: '',

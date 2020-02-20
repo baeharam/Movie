@@ -37,6 +37,7 @@ const DetailVideos = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                   href={video.path}
+                  data-testid="video-link"
                 >
                   <S.Video>
                     <S.Thumbnail src={video.thumbnail} alt="썸네일" />
