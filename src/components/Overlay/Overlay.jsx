@@ -21,7 +21,7 @@ const Overlay = () => {
           </Link>
         </S.LI>
         <S.LI>
-          <Link to="/likes" onClick={onClickLink}>
+          <Link to="/likes" data-testid="likes-link" onClick={onClickLink}>
             좋아요
           </Link>
         </S.LI>

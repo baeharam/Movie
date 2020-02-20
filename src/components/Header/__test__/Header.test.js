@@ -28,4 +28,11 @@ describe('<Header /> 테스트', () => {
     fireEvent.click(aroundLink);
     expect(getByTestId('location-display')).toHaveTextContent('/around');
   });
+
+  test('[좋아요] 페이지 링크가 정상 동작해야 함', () => {
+    const { getByTestId } = renderWithRedux(withRouter(<Header />));
+    const likesLink = getByTestId('likes-link');
+    fireEvent.click(likesLink);
+    expect(getByTestId('location-display')).toHaveTextContent('/likes');
+  });
 });
