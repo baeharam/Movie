@@ -19,7 +19,8 @@
     "react/jsx-props-no-spreading": "off",
     "no-plusplus": "off",
     "no-param-reassign": "off",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-restricted-syntax": "off"
   },
   "overrides": [
     {
