@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // Values
 
 export const headerHeight = '7vh';
+export const headerWidthLaptop = '1200px';
 
 // Colors
 
@@ -50,6 +51,6 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 
   @media ${device.Laptops} {
-    width: 1000px;
+    width: ${headerWidthLaptop};
   }
 `;

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { IoIosSearch } from 'react-icons/io';
-import { headerZindex, device, headerHeight } from 'styles/variables';
+import { headerZindex, device, headerHeight, headerWidthLaptop } from 'styles/variables';
 
 const menuMargin = '1rem';
 const headerStyle = css`
@@ -24,7 +24,7 @@ const Container = styled.div`
   color: ${({ color }) => color};
 
   @media ${device.Laptops} {
-    width: 1000px;
+    width: ${headerWidthLaptop};
   }
 `;
 
