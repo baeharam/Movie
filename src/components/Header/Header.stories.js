@@ -1,17 +1,17 @@
 import React from 'react';
 import { primaryColor } from 'styles/variables';
-import withRouter from 'utils/withRouter';
-import withRedux from 'utils/withRedux';
-import { Container } from 'pages/Home/Home.style';
+import StoryRouter from 'storybook-react-router';
 import Header from './Header';
 
 export default {
   title: 'components | Header',
   component: Header,
+  decorators: [storyFn => StoryRouter()(storyFn)],
 };
 
-export const black = () => withRedux(withRouter(<Header />));
+export const black = () => <Header />;
 black.story = {
+  name: '검은배경',
   decorators: [
     storyFn => (
       <div
@@ -26,14 +26,7 @@ black.story = {
   ],
 };
 
-export const white = () =>
-  withRedux(withRouter(<Header color={primaryColor} />));
-export const withBackground = () =>
-  withRedux(
-    withRouter(
-      <>
-        <Header />
-        <Container />
-      </>,
-    ),
-  );
+export const white = () => <Header color={primaryColor} />;
+white.story = {
+  name: '하얀 배경',
+};
