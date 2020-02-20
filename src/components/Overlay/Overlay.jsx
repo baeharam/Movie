@@ -8,7 +8,7 @@ const Overlay = () => {
   const { isOpen } = useSelector(state => state.overlay);
   const dispatch = useDispatch();
 
-  const onClickAround = () => {
+  const onClickLink = () => {
     dispatch(close());
   };
 
@@ -16,11 +16,15 @@ const Overlay = () => {
     <S.Overlay data-testid="overlay" open={isOpen}>
       <S.UL>
         <S.LI>
-          <Link to="/around" data-testid="around-link" onClick={onClickAround}>
+          <Link to="/around" data-testid="around-link" onClick={onClickLink}>
             둘러보기
           </Link>
         </S.LI>
-        <S.LI>좋아요</S.LI>
+        <S.LI>
+          <Link to="/likes" onClick={onClickLink}>
+            좋아요
+          </Link>
+        </S.LI>
         <S.LI>소개</S.LI>
       </S.UL>
     </S.Overlay>

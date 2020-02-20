@@ -39,4 +39,37 @@ const Overview = styled.div`
   line-height: 1.5;
 `;
 
-export { Container, Intro, Poster, Info, Divider, Tagline, Overview };
+const Title = styled.div`
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin-right: 1rem;
+  }
+`;
+
+const Like = styled.button`
+  display: flex;
+  justify-content: space-around;
+  background-color: ${primaryColor};
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+
+  span {
+    margin-right: 1rem;
+  }
+`;
+
+export {
+  Container,
+  Intro,
+  Poster,
+  Info,
+  Divider,
+  Tagline,
+  Overview,
+  Title,
+  Like,
+};

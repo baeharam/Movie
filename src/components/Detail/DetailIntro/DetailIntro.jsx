@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Wrapper } from 'styles/variables';
 import * as S from './DetailIntro.style';
 import { Section, Container } from '../Detail.style';
+import '../DetailImages/swiper.css';
 
 const DetailIntro = () => {
   const { result } = useSelector(state => state.detail);
+  const [isLike, setIsLike] = useState(
+    localStorage.getItem(result.id) !== null,
+  );
+
+  const onClickLike = () => {
+    const newLike = localStorage.getItem(result.id) === null;
+    if (newLike) {
+      localStorage.setItem(
+        result.id,
+        JSON.stringify({
+          id: result.id,
+          title: result.title,
+          posterPath: result.posterPath,
+        }),
+      );
+    } else {
+      localStorage.removeItem(result.id);
+    }
+    setIsLike(newLike);
+  };
 
   return (
     <>
@@ -20,6 +41,10 @@ const DetailIntro = () => {
               <span>{result.genres}</span>
               <span>{result.runtime}</span>
             </S.Info>
+            <S.Like type="button" onClick={onClickLike}>
+              <span>{isLike ? '좋아요 취소' : '좋아요'}</span>
+              {isLike ? <S.DislikeIcon /> : <S.LikeIcon />}
+            </S.Like>
             <S.Divider />
             <S.OverviewTitle>줄거리</S.OverviewTitle>
             {result.tagline && <h3>{result.tagline}</h3>}

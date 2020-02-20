@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { primaryColor, device } from 'styles/variables';
+import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 
 const Background = styled.section`
   position: relative;
@@ -29,6 +30,7 @@ const Info = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-bottom: 1rem;
 
   @media ${device.TabletPortrait} {
     font-size: 1.5rem;
@@ -50,4 +52,36 @@ const OverviewContent = styled.div`
   line-height: 1.5;
 `;
 
-export { Background, Poster, Info, Divider, OverviewTitle, OverviewContent };
+const Like = styled.button`
+  display: flex;
+  justify-content: space-around;
+  background-color: ${primaryColor};
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+
+  span {
+    margin-right: 1rem;
+  }
+`;
+
+const LikeIcon = styled(AiFillLike)`
+  color: white;
+`;
+
+const DislikeIcon = styled(AiFillDislike)`
+  color: white;
+`;
+
+export {
+  Background,
+  Poster,
+  Info,
+  Divider,
+  OverviewTitle,
+  OverviewContent,
+  Like,
+  LikeIcon,
+  DislikeIcon,
+};

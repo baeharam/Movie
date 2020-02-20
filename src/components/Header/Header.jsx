@@ -41,7 +41,9 @@ const Header = ({ color, bgColor }) => {
                   <S.LI>
                     <Link to="/around">둘러보기</Link>
                   </S.LI>
-                  <S.LI>좋아요</S.LI>
+                  <S.LI>
+                    <Link to="/likes">좋아요</Link>
+                  </S.LI>
                   <S.LI>소개</S.LI>
                 </S.UL>
               ) : (
