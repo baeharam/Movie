@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
+import '../DetailImages/swiper.css';
 import { Wrapper } from 'styles/variables';
 import * as S from './DetailCasts.style';
 import { Section, Container, Title } from '../Detail.style';
 
 const DetailCasts = () => {
   const { result } = useSelector(state => state.detail);
-
   const params = {
     slidesPerView: 3,
     spaceBetween: 30,
