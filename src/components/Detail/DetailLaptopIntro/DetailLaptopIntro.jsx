@@ -50,6 +50,7 @@ const DetailLaptopIntro = () => {
             <S.Intro>
               <S.Title>
                 <h1>{result.title}</h1>
+                <S.Year>({result.releaseDate})</S.Year>
                 <S.Like type="button" onClick={onClickLike}>
                   <span>{isLike ? '좋아요 취소' : '좋아요'}</span>
                   {isLike ? <DislikeIcon /> : <LikeIcon />}

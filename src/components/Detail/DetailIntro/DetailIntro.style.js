@@ -26,11 +26,19 @@ const Poster = styled.img`
   }
 `;
 
+const Year = styled.span`
+  font-size: 1.2rem;
+
+  @media ${device.TabletPortrait} {
+    font-size: 1.5rem;
+  }
+`;
+
 const Info = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  padding: 2rem 0;
 
   @media ${device.TabletPortrait} {
     font-size: 1.5rem;
@@ -77,6 +85,7 @@ const DislikeIcon = styled(AiFillDislike)`
 export {
   Background,
   Poster,
+  Year,
   Info,
   Divider,
   OverviewTitle,

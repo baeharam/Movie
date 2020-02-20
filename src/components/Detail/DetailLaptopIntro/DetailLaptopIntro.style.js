@@ -12,6 +12,11 @@ const Poster = styled.img`
   margin-right: 2rem;
 `;
 
+const Year = styled.span`
+  font-size: 1.3rem;
+  margin-right: 1rem;
+`;
+
 const Intro = styled.div`
   flex: 1;
 `;
@@ -66,6 +71,7 @@ export {
   Container,
   Intro,
   Poster,
+  Year,
   Info,
   Divider,
   Tagline,

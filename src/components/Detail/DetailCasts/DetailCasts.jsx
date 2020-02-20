@@ -32,7 +32,7 @@ const DetailCasts = () => {
           <Title>출연</Title>
           <Swiper {...params}>
             {result.casts.map(cast => (
-              <S.CastContent key={cast.name}>
+              <S.CastContent key={cast.name + cast.role}>
                 <S.CastProfile src={cast.profilePath} alt="프로필" />
                 <S.CastName>{cast.name}</S.CastName>
                 <S.CastRole>{cast.role} 역</S.CastRole>

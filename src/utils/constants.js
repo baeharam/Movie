@@ -6,6 +6,7 @@ export const imagePath = {
   original: `${IMG_PATH}original`,
   w500: `${IMG_PATH}w500`,
   w780: `${IMG_PATH}w780`,
+  empty: 'https://ssl.pstatic.net/static/movie/2012/06/dft_img77x96_1.png',
 };
 export const YOUTUBE_PATH = 'https://www.youtube.com/watch?v=';
 export const getYoutubeThumbnail = key =>

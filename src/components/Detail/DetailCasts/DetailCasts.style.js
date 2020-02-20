@@ -11,6 +11,7 @@ const CastProfile = styled.img`
   border-radius: 5px;
   margin-bottom: 0.5rem;
   box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.5);
+  flex: 1;
 `;
 
 const CastName = styled.p`
