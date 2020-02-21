@@ -26,21 +26,25 @@ const LikesList = () => {
         <S.Container>
           <S.Title>좋아하는 영화들</S.Title>
           <S.ItemList>
-            {likes.map(like => (
-              <S.Item key={like.id}>
-                <S.ItemLink to={`/detail/${like.id}`}>
-                  <img src={like.posterPath} alt="포스터" />
-                  <S.MovieTitle>{like.title}</S.MovieTitle>
-                </S.ItemLink>
-                <S.RemoveButton
-                  data-id={like.id}
-                  onClick={onClickRemove}
-                  type="button"
-                >
-                  좋아요 취소
-                </S.RemoveButton>
-              </S.Item>
-            ))}
+            {likes.length ? (
+              likes.map(like => (
+                <S.Item key={like.id}>
+                  <S.ItemLink to={`/detail/${like.id}`}>
+                    <img src={like.posterPath} alt="포스터" />
+                    <S.MovieTitle>{like.title}</S.MovieTitle>
+                  </S.ItemLink>
+                  <S.RemoveButton
+                    data-id={like.id}
+                    onClick={onClickRemove}
+                    type="button"
+                  >
+                    좋아요 취소
+                  </S.RemoveButton>
+                </S.Item>
+              ))
+            ) : (
+              <p>좋아하는 영화가 없습니다.</p>
+            )}
           </S.ItemList>
         </S.Container>
       </Wrapper>
