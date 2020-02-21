@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
@@ -7,6 +7,7 @@ import Loader from 'components/Loader/Loader';
 import { aroundActions } from 'store/modules/around';
 import { AROUND_POPULAR } from 'utils/constants';
 import LocationDisplay from 'utils/locationDisplay';
+import useComponentWillMount from 'hooks/useComponentWillMount';
 import * as S from './AroundCardList.style';
 
 const AroundCardList = () => {
@@ -15,9 +16,9 @@ const AroundCardList = () => {
   const isLoading = loadingState[aroundActions.TYPE];
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useComponentWillMount(() => {
     dispatch(aroundActions.request({ TYPE: AROUND_POPULAR }));
-  }, [dispatch]);
+  });
 
   return !isLoading ? (
     <>

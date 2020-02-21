@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import { Layout, primaryColor, device } from 'styles/variables';
@@ -15,6 +15,7 @@ import {
 } from 'components/Detail/index';
 import Loader from 'components/Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
+import useComponentWillMount from 'hooks/useComponentWillMount';
 import * as S from './Detail.style';
 
 const Detail = ({ match }) => {
@@ -24,9 +25,7 @@ const Detail = ({ match }) => {
   const isLoading = loadingState[detailActions.TYPE];
   const isLaptop = useMediaQuery({ query: device.Laptops });
 
-  useEffect(() => {
-    dispatch(detailActions.request({ id }));
-  }, [dispatch, id]);
+  useComponentWillMount(() => dispatch(detailActions.request({ id })));
 
   return (
     <Layout>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { HomeIntro } from 'components/Home/index';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { introActions } from 'store/modules/intro';
 import Loader from 'components/Loader/Loader';
 import { primaryColor, Layout } from 'styles/variables';
+import useComponentWillMount from 'hooks/useComponentWillMount';
 import * as S from './Home.style';
 
 const Home = () => {
@@ -14,9 +15,9 @@ const Home = () => {
   const isLoading = loadingState[introActions.TYPE];
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useComponentWillMount(() => {
     dispatch(introActions.request());
-  }, [dispatch]);
+  });
 
   return !isLoading ? (
     <Layout>
@@ -24,7 +25,7 @@ const Home = () => {
       <S.Main>
         <HomeIntro />
       </S.Main>
-      <S.Container backdropPath={result.backdropPath} />
+      <S.Background backdropPath={result.backdropPath} />
       <Footer />
     </Layout>
   ) : (
