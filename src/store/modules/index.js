@@ -4,6 +4,7 @@ import loading from './loading';
 import around from './around';
 import overlay from './overlay';
 import detail from './detail';
+import search from './search';
 
 export default combineReducers({
   intro,
@@ -11,4 +12,5 @@ export default combineReducers({
   around,
   overlay,
   detail,
+  search,
 });
