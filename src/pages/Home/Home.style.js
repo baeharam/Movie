@@ -6,7 +6,7 @@ const Main = styled.main`
   align-items: center;
 `;
 
-const Container = styled.div`
+const Background = styled.div`
   position: absolute;
   left: 0;
   top: 0;
@@ -34,4 +34,4 @@ const LoaderContainer = styled.div`
   height: 100vh;
 `;
 
-export { Main, Container, LoaderContainer };
+export { Main, Background, LoaderContainer };
