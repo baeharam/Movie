@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
 import { IoIosSearch } from 'react-icons/io';
-import { headerZindex, device, headerHeight, headerWidthLaptop } from 'styles/variables';
+import {
+  headerZindex,
+  device,
+  headerHeight,
+  headerWidthLaptop,
+} from 'styles/variables';
+import { Link } from 'react-router-dom';
 
 const menuMargin = '1rem';
 const headerStyle = css`
@@ -39,7 +45,8 @@ const LogoButton = styled.button`
 const IconButton = styled.button`
   color: inherit;
   margin-right: ${menuMargin};
-  display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
+  display: ${({ isOpen, isSearching }) =>
+    isOpen || isSearching ? 'none' : 'block'};
 
   @media ${device.TabletPortrait} {
     margin-right: calc(${menuMargin} + 1rem);

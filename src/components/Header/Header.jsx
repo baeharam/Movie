@@ -9,7 +9,7 @@ import Overlay from 'components/Overlay/Overlay';
 import * as S from './Header.style';
 import OverlayButton from './OverlayButton/OverlayButton';
 
-const Header = ({ color, bgColor }) => {
+const Header = ({ color, bgColor, isSearching }) => {
   const isTabletPortrait = useMediaQuery({ query: device.TabletPortrait });
   const { isOpen } = useSelector(state => state.overlay);
 
@@ -33,8 +33,11 @@ const Header = ({ color, bgColor }) => {
                 type="button"
                 aria-label="검색버튼"
                 isOpen={isOpen}
+                isSearching={isSearching}
               >
-                <S.SearchIcon />
+                <Link to="/search">
+                  <S.SearchIcon />
+                </Link>
               </S.IconButton>
               {isTabletPortrait ? (
                 <S.UL>
@@ -62,11 +65,13 @@ const Header = ({ color, bgColor }) => {
 Header.defaultProps = {
   color: 'white',
   bgColor: 'transparent',
+  isSearching: false,
 };
 
 Header.propTypes = {
   color: PropTypes.string,
   bgColor: PropTypes.string,
+  isSearching: PropTypes.bool,
 };
 
 export default Header;
