@@ -32,7 +32,9 @@ const DetailSimilars = () => {
       <Section>
         <Wrapper>
           <Container>
-            <Title>이런 영화는 어때요?</Title>
+            {result.similars && result.similars.length ? (
+              <Title>이런 영화는 어때요?</Title>
+            ) : null}
             <Swiper {...params}>
               {result.similars &&
                 result.similars.map(similar => (
