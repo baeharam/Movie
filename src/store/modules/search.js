@@ -17,7 +17,11 @@ const initialState = {
 
 const reducer = handleActions(
   {
-    [searchActions.REQUEST]: (state, _action) => state,
+    [searchActions.REQUEST]: (state, _action) => {
+      return produce(state, draft => {
+        Object.assign(draft, initialState);
+      });
+    },
 
     [searchActions.SUCCESS]: (state, action) => {
       return produce(state, draft => {

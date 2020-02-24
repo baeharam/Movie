@@ -3,6 +3,7 @@ import fetchData from 'utils/fetchData';
 
 export default async function searchAPI(payload) {
   const { movie } = payload;
+  if (!movie.length) return [];
   const jsonResult = await fetchData('search/movie', [
     korean,
     `query=${movie}`,
