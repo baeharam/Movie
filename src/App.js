@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import GlobalStyle from 'styles/global';
-import { Home, Around, Detail, Likes, Search } from 'pages/index';
+import { Home, Around, Detail, Likes, Search, About } from 'pages/index';
 
 const App = () => {
   const { isOpen } = useSelector(state => state.overlay);
@@ -30,6 +30,9 @@ const App = () => {
           </Route>
           <Route path="/search">
             <Search />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
         </Switch>
       </Router>

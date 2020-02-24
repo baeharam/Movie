@@ -25,7 +25,11 @@ const Overlay = () => {
             좋아요
           </Link>
         </S.LI>
-        <S.LI>소개</S.LI>
+        <S.LI>
+          <Link to="/about" onClick={onClickLink}>
+            소개
+          </Link>
+        </S.LI>
       </S.UL>
     </S.Overlay>
   );
