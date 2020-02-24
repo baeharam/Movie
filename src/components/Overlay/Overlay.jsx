@@ -26,7 +26,7 @@ const Overlay = () => {
           </Link>
         </S.LI>
         <S.LI>
-          <Link to="/about" onClick={onClickLink}>
+          <Link to="/about" data-testid="about-link" onClick={onClickLink}>
             소개
           </Link>
         </S.LI>

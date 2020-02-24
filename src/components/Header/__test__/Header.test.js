@@ -35,4 +35,18 @@ describe('<Header /> 테스트', () => {
     fireEvent.click(likesLink);
     expect(getByTestId('location-display')).toHaveTextContent('/likes');
   });
+
+  test('[검색] 페이지 링크가 정상 동작해야 함', () => {
+    const { getByTestId } = renderWithRedux(withRouter(<Header />));
+    const searchButton = getByTestId('search-button');
+    fireEvent.click(searchButton);
+    expect(getByTestId('location-display')).toHaveTextContent('/search');
+  });
+
+  test('[소개] 페이지 링크가 정상 동작해야 함', () => {
+    const { getByTestId } = renderWithRedux(withRouter(<Header />));
+    const aboutLink = getByTestId('about-link');
+    fireEvent.click(aboutLink);
+    expect(getByTestId('location-display')).toHaveTextContent('/about');
+  });
 });
