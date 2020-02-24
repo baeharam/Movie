@@ -19,8 +19,19 @@ const initialState = {
     posterPath: '',
     backdropPath: '',
     images: [],
-    videos: [],
-    simliars: [],
+    videos: [
+      {
+        path: '',
+        thumbnail: '',
+      },
+    ],
+    simliars: [
+      {
+        id: '',
+        title: '',
+        posterPath: '',
+      },
+    ],
     casts: [
       {
         name: '',
