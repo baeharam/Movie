@@ -26,7 +26,7 @@ const SearchContent = () => {
 
   useEffect(() => {
     dispatch(searchActions.request({ movie: debouncedValue }));
-  }, [debouncedValue]);
+  }, [debouncedValue, dispatch]);
 
   const renderSearchResult = () => {
     if (isLoading) {
