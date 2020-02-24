@@ -8,7 +8,12 @@ const Footer = ({ color }) => {
     <S.Footer>
       <Wrapper>
         <S.Container>
-          <S.Copyright color={color}>Made by HaramBae</S.Copyright>
+          <S.Copyright color={color}>
+            <S.Author>Made by Haram Bae</S.Author>
+            <a href="https://github.com/baeharam">
+              <S.Github />
+            </a>
+          </S.Copyright>
         </S.Container>
       </Wrapper>
     </S.Footer>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { footerZindex } from 'styles/variables';
+import { FaGithub } from 'react-icons/fa';
 
 const Footer = styled.footer`
   padding: 1rem 0;
@@ -15,9 +16,19 @@ const Container = styled.div`
 `;
 
 const Copyright = styled.p`
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   color: ${({ color }) => color};
   opacity: 0.7;
 `;
 
-export { Footer, Copyright, Container };
+const Author = styled.p`
+  margin-right: 1rem;
+`;
+
+const Github = styled(FaGithub)`
+  font-size: 1.2rem;
+`;
+
+export { Footer, Copyright, Container, Author, Github };
