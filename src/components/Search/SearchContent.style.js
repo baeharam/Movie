@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { primaryColor, headerHeight } from 'styles/variables';
 
 const Section = styled.section`
@@ -24,7 +25,8 @@ const Result = styled.div`
   max-height: 97%;
 `;
 
-const Item = styled.p`
+const Item = styled(Link)`
+  display: block;
   padding: 0.5rem 0;
 `;
 

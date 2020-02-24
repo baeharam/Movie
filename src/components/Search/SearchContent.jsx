@@ -5,7 +5,7 @@ import useComponentWillMount from 'hooks/useComponentWillMount';
 import { Wrapper, primaryColor } from 'styles/variables';
 import { searchActions } from 'store/modules/search';
 import Loader from 'components/Loader/Loader';
-import { Link } from 'react-router-dom';
+import LocationDisplay from 'utils/locationDisplay';
 import * as S from './SearchContent.style';
 
 const SearchContent = () => {
@@ -40,8 +40,12 @@ const SearchContent = () => {
       return (
         <S.Result>
           {result.map(movie => (
-            <S.Item key={movie.id}>
-              <Link to={`/detail/${movie.id}`}>{movie.title}</Link>
+            <S.Item
+              to={`/detail/${movie.id}`}
+              data-testid="search-item-link"
+              key={movie.id}
+            >
+              {movie.title}
             </S.Item>
           ))}
         </S.Result>
@@ -51,18 +55,21 @@ const SearchContent = () => {
   };
 
   return (
-    <S.Section>
-      <Wrapper>
-        <S.Container>
-          <S.Input
-            onChange={onChangeInput}
-            type="text"
-            placeholder="어떤 영화를 찾으시나요?"
-          />
-          {renderSearchResult()}
-        </S.Container>
-      </Wrapper>
-    </S.Section>
+    <>
+      <S.Section>
+        <Wrapper>
+          <S.Container>
+            <S.Input
+              onChange={onChangeInput}
+              type="text"
+              placeholder="어떤 영화를 찾으시나요?"
+            />
+            {renderSearchResult()}
+          </S.Container>
+        </Wrapper>
+      </S.Section>
+      <LocationDisplay />
+    </>
   );
 };
 

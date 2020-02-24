@@ -23,27 +23,18 @@ const Header = ({ color, bgColor, isSearching }) => {
       <S.Header bgColor={bgColor}>
         <Wrapper>
           <S.Container isOpen={isOpen} color={color}>
-            <Link to="/">
-              <S.LogoButton
-                data-testid="logo-button"
-                type="button"
-                isOpen={isOpen}
-              >
-                movie
-              </S.LogoButton>
-            </Link>
+            <S.LogoLink to="/" data-testid="logo-button" isOpen={isOpen}>
+              movie
+            </S.LogoLink>
             <S.MenuContainer>
               {!isSearching ? (
-                <S.IconButton
+                <S.SearchLink
+                  to="/search"
                   data-testid="search-button"
-                  type="button"
-                  aria-label="검색버튼"
                   isOpen={isOpen}
                 >
-                  <Link to="/search">
-                    <S.SearchIcon />
-                  </Link>
-                </S.IconButton>
+                  <S.SearchIcon />
+                </S.SearchLink>
               ) : (
                 <S.SearchCancel onClick={onClickSearchCancel} type="button">
                   검색취소

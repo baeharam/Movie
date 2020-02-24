@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { IoIosSearch } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 import {
   headerZindex,
   device,
@@ -33,7 +34,7 @@ const Container = styled.div`
   }
 `;
 
-const LogoButton = styled.button`
+const LogoLink = styled(Link)`
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.5rem;
@@ -41,7 +42,7 @@ const LogoButton = styled.button`
   display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
 `;
 
-const IconButton = styled.button`
+const SearchLink = styled(Link)`
   color: inherit;
   margin-right: ${menuMargin};
   display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
@@ -93,10 +94,10 @@ const SearchCancel = styled.button`
 export {
   Header,
   Container,
-  LogoButton,
+  LogoLink,
   SearchIcon,
   SearchCancel,
-  IconButton,
+  SearchLink,
   MenuContainer,
   UL,
   LI,
