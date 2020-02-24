@@ -20,7 +20,9 @@
     "no-plusplus": "off",
     "no-param-reassign": "off",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "no-continue": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
   "overrides": [
     {
