@@ -57,7 +57,9 @@ const Header = ({ color, bgColor, isSearching }) => {
                   <S.LI>
                     <Link to="/likes">좋아요</Link>
                   </S.LI>
-                  <S.LI>소개</S.LI>
+                  <S.LI>
+                    <Link to="/about">소개</Link>
+                  </S.LI>
                 </S.UL>
               ) : (
                 <OverlayButton color={color} />
