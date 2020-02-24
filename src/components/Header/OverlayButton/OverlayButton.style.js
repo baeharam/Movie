@@ -13,7 +13,7 @@ const StyledOverlayButton = styled.button`
     width: 2rem;
     height: 0.25rem;
     background-color: ${({ isOpen }) =>
-      isOpen ? 'black' : ({ color }) => color};
+      isOpen ? 'white' : ({ color }) => color};
     transition: all 0.2s linear;
 
     &:first-child {

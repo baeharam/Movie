@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { overlayZindex, secondaryColor } from 'styles/variables';
+import { overlayZindex } from 'styles/variables';
 
 const Overlay = styled.div`
   position: fixed;
@@ -8,7 +8,7 @@ const Overlay = styled.div`
   right: 0;
   width: 100%;
   height: ${({ open }) => (open ? '100%' : '0')};
-  background-color: ${secondaryColor};
+  background-color: rgba(0, 0, 0, 0.8);
   transition: all 0.3s linear;
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   opacity: ${({ open }) => (open ? 1 : 0)};
@@ -26,7 +26,7 @@ const LI = styled.li`
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: bold;
-  color: black;
+  color: white;
   cursor: pointer;
 
   &:last-child {
