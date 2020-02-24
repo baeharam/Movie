@@ -29,6 +29,7 @@ const Title = styled.h2`
 
 const Desc = styled.p`
   font-size: 2em;
+  font-style: italic;
   margin-bottom: ${contentMarginBottom};
   line-height: 1.2;
 `;

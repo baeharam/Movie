@@ -14,11 +14,7 @@ const HomeIntro = () => {
         <Wrapper>
           <S.Container>
             <S.Title>오늘의 영화</S.Title>
-            <S.Desc data-testid="home-tagline">
-              &quot;
-              {result.tagline}
-              &quot;
-            </S.Desc>
+            <S.Desc data-testid="home-tagline">{result.tagline}</S.Desc>
             <S.Name data-testid="home-title">{result.title}</S.Name>
             <S.MoreButton>
               <Link data-testid="more-link" to={`/detail/${result.id}`}>

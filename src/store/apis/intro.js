@@ -23,7 +23,5 @@ export default async function introAPI() {
     randomMovie.id = result.id;
   }
 
-  randomMovie.title = randomMovie.title.replace(/“|”/i, '');
-
   return randomMovie;
 }
