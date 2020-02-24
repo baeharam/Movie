@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { primaryColor } from 'styles/variables';
+import { primaryColor, headerHeight } from 'styles/variables';
 
 const Section = styled.section`
   background-color: white;
@@ -8,21 +8,31 @@ const Section = styled.section`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: calc(100vh - ${headerHeight});
 `;
 
 const Input = styled.input`
   padding: 0.7rem 0.5rem;
   border-radius: 5px;
-  border: 1px solid ${primaryColor};
-  margin-top: 1rem;
+  border: 2px solid ${primaryColor};
+  margin: 1rem 0;
+  flex-basis: 3%;
 `;
 
 const Result = styled.div`
-  overflow: scroll;
+  overflow-y: auto;
+  max-height: 97%;
 `;
 
 const Item = styled.p`
   padding: 0.5rem 0;
 `;
 
-export { Section, Container, Input, Result, Item };
+const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
+
+export { Section, Container, Input, Result, Item, LoaderContainer };

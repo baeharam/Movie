@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useDebounce from 'hooks/useDebounce';
-import { Wrapper } from 'styles/variables';
+import useComponentWillMount from 'hooks/useComponentWillMount';
+import { Wrapper, primaryColor } from 'styles/variables';
 import { searchActions } from 'store/modules/search';
 import Loader from 'components/Loader/Loader';
+import { Link } from 'react-router-dom';
 import * as S from './SearchContent.style';
 
 const SearchContent = () => {
@@ -18,21 +20,29 @@ const SearchContent = () => {
     setSearchValue(e.target.value);
   };
 
+  useComponentWillMount(() => {
+    dispatch(searchActions.request({ movie: '' }));
+  });
+
   useEffect(() => {
-    if (debouncedValue.length) {
-      dispatch(searchActions.request({ movie: searchValue }));
-    }
+    dispatch(searchActions.request({ movie: debouncedValue }));
   }, [debouncedValue]);
 
   const renderSearchResult = () => {
     if (isLoading) {
-      return <Loader />;
+      return (
+        <S.LoaderContainer>
+          <Loader color={primaryColor} />
+        </S.LoaderContainer>
+      );
     }
     if (searchSuccess) {
       return (
         <S.Result>
           {result.map(movie => (
-            <S.Item key={movie.id}>{movie.title}</S.Item>
+            <S.Item key={movie.id}>
+              <Link to={`/detail/${movie.id}`}>{movie.title}</Link>
+            </S.Item>
           ))}
         </S.Result>
       );

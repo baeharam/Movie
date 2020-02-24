@@ -6,7 +6,7 @@ import SearchContent from 'components/Search/SearchContent';
 const Search = () => {
   return (
     <Layout>
-      <Header color={primaryColor} isSearching />
+      <Header color={primaryColor} bgColor="white" isSearching />
       <main>
         <SearchContent />
       </main>
