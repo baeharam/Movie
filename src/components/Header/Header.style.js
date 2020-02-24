@@ -6,7 +6,6 @@ import {
   headerHeight,
   headerWidthLaptop,
 } from 'styles/variables';
-import { Link } from 'react-router-dom';
 
 const menuMargin = '1rem';
 const headerStyle = css`
@@ -45,8 +44,7 @@ const LogoButton = styled.button`
 const IconButton = styled.button`
   color: inherit;
   margin-right: ${menuMargin};
-  display: ${({ isOpen, isSearching }) =>
-    isOpen || isSearching ? 'none' : 'block'};
+  display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
 
   @media ${device.TabletPortrait} {
     margin-right: calc(${menuMargin} + 1rem);
@@ -87,11 +85,17 @@ const LI = styled.li`
   }
 `;
 
+const SearchCancel = styled.button`
+  color: red;
+  margin-right: 1rem;
+`;
+
 export {
   Header,
   Container,
   LogoButton,
   SearchIcon,
+  SearchCancel,
   IconButton,
   MenuContainer,
   UL,

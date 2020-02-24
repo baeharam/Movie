@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrapper, device } from 'styles/variables';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LocationDisplay from 'utils/locationDisplay';
 import Overlay from 'components/Overlay/Overlay';
@@ -12,6 +12,11 @@ import OverlayButton from './OverlayButton/OverlayButton';
 const Header = ({ color, bgColor, isSearching }) => {
   const isTabletPortrait = useMediaQuery({ query: device.TabletPortrait });
   const { isOpen } = useSelector(state => state.overlay);
+  const history = useHistory();
+
+  const onClickSearchCancel = () => {
+    history.goBack();
+  };
 
   return (
     <>
@@ -28,17 +33,22 @@ const Header = ({ color, bgColor, isSearching }) => {
               </S.LogoButton>
             </Link>
             <S.MenuContainer>
-              <S.IconButton
-                data-testid="search-button"
-                type="button"
-                aria-label="검색버튼"
-                isOpen={isOpen}
-                isSearching={isSearching}
-              >
-                <Link to="/search">
-                  <S.SearchIcon />
-                </Link>
-              </S.IconButton>
+              {!isSearching ? (
+                <S.IconButton
+                  data-testid="search-button"
+                  type="button"
+                  aria-label="검색버튼"
+                  isOpen={isOpen}
+                >
+                  <Link to="/search">
+                    <S.SearchIcon />
+                  </Link>
+                </S.IconButton>
+              ) : (
+                <S.SearchCancel onClick={onClickSearchCancel} type="button">
+                  검색취소
+                </S.SearchCancel>
+              )}
               {isTabletPortrait ? (
                 <S.UL>
                   <S.LI>
