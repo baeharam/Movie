@@ -4,8 +4,9 @@ import * as S from './LikesList.style';
 
 const getAllLikes = () => {
   const likes = [];
-  for (const item of Object.values(localStorage)) {
-    likes.push(JSON.parse(item));
+  for (const [key, value] of Object.entries(localStorage)) {
+    if (!Number.isSafeInteger(Number(key))) continue;
+    likes.push(JSON.parse(value));
   }
   return likes;
 };
