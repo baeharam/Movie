@@ -15,7 +15,7 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
-const Copyright = styled.p`
+const Copyright = styled.div`
   display: flex;
   align-items: center;
   font-size: 1rem;
