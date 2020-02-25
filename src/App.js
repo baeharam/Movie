@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle isOpen={isOpen} />
-      <Router>
+      <Router basename={window.location.pathname || ''}>
         <Switch>
           <Route exact path="/">
             <Home />
