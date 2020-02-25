@@ -22,7 +22,7 @@ const Input = styled.input`
 
 const Result = styled.div`
   overflow-y: auto;
-  max-height: 97%;
+  max-height: 90%;
 `;
 
 const Item = styled(Link)`
