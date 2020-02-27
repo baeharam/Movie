@@ -4,7 +4,7 @@
   <img src="images/movie.png" width="400px">
 </p>
 
-#### [웹사이트](https://baeharam.github.io/movie/)
+#### [웹사이트](https://baeharam.github.io/Movie/)
 
 ## 프로젝트 소개
 
